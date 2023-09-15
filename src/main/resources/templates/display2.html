@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Display</title>
+</head>
+
+<style>
+	body{
+		text-align:center;
+	}
+	   table
+    {
+   		margin-left: auto;
+  		margin-right: auto;
+    }
+</style>
+
+<body bgcolor="orange">
+<p>Choose a car to buy</p>
+<form action="#" th:action="@{/showResult2}" method="post">
+<table border="2x">
+	<tr>
+		<td th:each="colhead:${colHeads}" th:text="${colhead}"></td>
+	</tr>
+	<tr th:each="car: ${cars}">
+		<td><input type="radio" 
+		th:name="car"
+        th:value="${car}" checked ></td>
+		<td th:text="${car.getBrand}"></td>
+		<td th:text="${car.getModel}"></td>
+		<td th:text="${car.getYear}"></td> 
+		<td th:text="${car.getKms}"></td> 
+		<td th:text="${car.getPrice}"></td> 
+		<td th:text="${car.getFuel}"></td> 
+	</tr>
+	<tr><td colspan=7><input type="Submit" name="buttonValue" value="Book">
+						<input type="Submit" name="buttonValue" value="Home">
+						<input type="Submit" name="buttonValue" value="Back">
+	</td></tr>
+</table>
+</form>
+
+</body>
+</html>

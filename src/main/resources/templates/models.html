@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Car</title>
+</head>
+<style>
+	body{
+		text-align:center;
+	}
+	   table
+    {
+   		margin-left: auto;
+  		margin-right: auto;
+    }
+</style>
+<body bgcolor="orange">
+<h1>BestChoice Cars</h1>
+<p>Choose brand to find available models</p>
+<form action="#" th:action="@{/getByBrand}" method="post">
+<table border="2x">
+<tr><td>Brand:</td><td>
+<select name="selectBrand">
+	<option value="default">Select a Brand</option>
+    <option th:each="brand : ${brands}" 
+   	 		th:value="${brand}" 
+    		th:text="${brand}">
+    </option>
+</select>
+</td><tr>
+<tr><td colspan="2"><input type="Submit" name="buttonValue" value="Find Models">
+<input type="Submit" name="buttonValue" value="Back"></td></tr>
+</table>
+</form>
+
+</body>
+</html>
